@@ -18,7 +18,7 @@ class Apptheme {
     //text theme
     textTheme: const TextTheme(
       titleLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 42),
-      bodyMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      bodyMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
     ),
   );
 }
