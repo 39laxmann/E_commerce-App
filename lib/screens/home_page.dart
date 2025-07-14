@@ -15,25 +15,58 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Shimmer.fromColors(
-          baseColor: Colors.black,
-          highlightColor: Colors.grey,
-          child: const Text("Shopmandu", style: TextStyle(letterSpacing: 2.7)),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint("Account button pressed");
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyAccount()),
-              );
-            },
-            icon: Icon(Icons.account_circle_outlined, size: 40),
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                offset: Offset(0, 4),
+              ),
+            ],
           ),
-        ],
+          child: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0, // remove default shadow
+            title: Shimmer.fromColors(
+              baseColor: Colors.black,
+              highlightColor: Colors.grey,
+              child: const Text(
+                "Shopmandu",
+                style: TextStyle(
+                  letterSpacing: 2.7,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            iconTheme: IconThemeData(
+              color: Colors.black,
+            ), // ensure icons are black
+            actions: [
+              IconButton(
+                onPressed: () {
+                  debugPrint("Account button pressed");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyAccount()),
+                  );
+                },
+                icon: Icon(Icons.account_circle_outlined, size: 34),
+              ),
+            ],
+          ),
+        ),
       ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -43,14 +76,20 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 37),
               ProductCarousel(),
               SizedBox(height: 23),
-              Text("Category", style: TextStyle()),
+              Divider(color: Colors.grey, thickness: 1, height: 32),
+              Text("Categories", style: TextStyle(fontSize: 20)),
+              SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     ProductCategory(
+                      imageCategory: "assets/product_category_image/laptop.png",
+                      nameCategory: "Laptop",
+                    ),
+                    ProductCategory(
                       imageCategory: "assets/product_category_image/cctv.png",
-                      nameCategory: "CCTV",
+                      nameCategory: "Cctv",
                     ),
                     ProductCategory(
                       imageCategory:
@@ -58,13 +97,9 @@ class _HomePageState extends State<HomePage> {
                       nameCategory: "Keyboard",
                     ),
                     ProductCategory(
-                      imageCategory: "assets/product_category_image/laptop.png",
-                      nameCategory: "Laptop",
-                    ),
-                    ProductCategory(
                       imageCategory:
                           "assets/product_category_image/laptop_stand.png",
-                      nameCategory: "Laptop stand",
+                      nameCategory: "Stand",
                     ),
                     ProductCategory(
                       imageCategory:
@@ -75,8 +110,61 @@ class _HomePageState extends State<HomePage> {
                       imageCategory: "assets/product_category_image/mouse.png",
                       nameCategory: "Mouse",
                     ),
+                    ProductCategory(
+                      imageCategory: "assets/product_category_image/Camera.png",
+                      nameCategory: "Camera",
+                    ),
                   ],
                 ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 10,
+              offset: Offset(0, -2),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          child: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.orangeAccent,
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined, size: 32),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search, size: 32),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart, size: 32),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.message_rounded, size: 32),
+                label: '',
               ),
             ],
           ),
