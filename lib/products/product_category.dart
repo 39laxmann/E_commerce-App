@@ -16,6 +16,7 @@ class ProductCategory extends StatelessWidget {
       child: SizedBox(
         height: 120,
         width: 100,
+
         child: Column(
           children: [
             Image.asset(

@@ -68,6 +68,7 @@ class _ProductCarouselState extends State<ProductCarousel> {
                       shape: BoxShape.circle,
                       color: _currentIndex == entry.key
                           ? Colors.white
+                          // ignore: deprecated_member_use
                           : Colors.white.withOpacity(0.4),
                     ),
                   );
