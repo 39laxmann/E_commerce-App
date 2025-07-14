@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/products/product_carousel.dart';
 import 'package:e_commerce_app/products/product_category.dart';
+import 'package:e_commerce_app/products/product_display.dart';
 import 'package:e_commerce_app/screens/account_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -116,6 +117,44 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
+              ),
+              Divider(color: Colors.grey, thickness: 1, height: 32),
+              GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: 0.96, // Adjust based on design
+                crossAxisSpacing: 12,
+
+                padding: const EdgeInsets.all(12),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  ProductDisplay(
+                    imagePath: 'assets/product_category_image/laptop.png',
+                    productName: 'HP Pavilion 15',
+                    productPrice: 85000.0,
+                  ),
+                  ProductDisplay(
+                    imagePath: 'assets/images/cctv_2.png',
+                    productName: 'CCTV Camera',
+                    productPrice: 4500.0,
+                  ),
+                  ProductDisplay(
+                    imagePath: 'assets/images/canon.png',
+                    productName: 'Canon EOS 6D',
+                    productPrice: 259999.0,
+                  ),
+                  ProductDisplay(
+                    imagePath: 'assets/images/T5P_ratri_cctv.png',
+                    productName: 'T5P Ratri CCTV',
+                    productPrice: 6999.0,
+                  ),
+                  ProductDisplay(
+                    imagePath: 'assets/images/Msi_monitor.png',
+                    productName: 'MSI 1080p FULL HD Monitor',
+                    productPrice: 18000.0,
+                  ),
+                  // add more items...
+                ],
               ),
             ],
           ),
