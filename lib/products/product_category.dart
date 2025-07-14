@@ -11,24 +11,21 @@ class ProductCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 120,
-      height: 148,
-      child: Card(
-        elevation: 8.0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 13, vertical: 8),
-          child: Column(
-            children: [
-              Image.asset(
-                imageCategory,
-                fit: BoxFit.cover,
-                width: double.infinity,
-              ),
-              Text(nameCategory),
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: SizedBox(
+        height: 120,
+        width: 100,
+        child: Column(
+          children: [
+            Image.asset(
+              imageCategory,
+              height: 71,
+              width: 71,
+              fit: BoxFit.cover,
+            ),
+            Text(nameCategory),
+          ],
         ),
       ),
     );
