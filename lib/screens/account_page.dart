@@ -4,6 +4,7 @@ import 'dart:ffi';
 import 'package:e_commerce_app/screens/change_password.dart';
 import 'package:e_commerce_app/screens/edit_profile.dart';
 import 'package:e_commerce_app/screens/setting.dart';
+// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -122,6 +123,66 @@ class _MyAccountState extends State<MyAccount> {
               ),
             ),
 
+           
+
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 1,
+              child: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                    elevation: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'My Orders',
+                            style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                      
+                            
+                          ),
+                          SizedBox(height:4),
+                          Text(
+                            'Order1: Delivered',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                           SizedBox(height:4),
+                          Text(
+                            'Order2: On the way',
+                            style: TextStyle(fontSize: 15),
+                          )
+                        ],
+                                    
+                      ),
+                    ),  
+              ),
+            ),
+
+             
+
+            Card(
+                  shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  elevation: 0,
+                  child:Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Switch(
+                        //   value: true,
+                        //   onChanged: ()  {},
+                        // ),
+                        const Text(
+                          'Receive notifications',
+                          style: TextStyle(fontSize: 15),
+                        )
+                      ],
+                    ), 
+                  )
+
+            
+            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -140,7 +201,7 @@ class _MyAccountState extends State<MyAccount> {
                   );},
                 child: Text("change password",style: TextStyle(fontSize: 19),))
               ],
-            )
+            ),
 
           ],
         )
