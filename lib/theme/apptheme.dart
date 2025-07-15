@@ -21,5 +21,12 @@ class Apptheme {
       bodyMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       bodySmall: TextStyle(fontSize: 12),
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.green.shade400,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+    ),
   );
 }

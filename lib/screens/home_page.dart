@@ -23,8 +23,8 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+              bottomLeft: Radius.circular(8),
+              bottomRight: Radius.circular(8),
             ),
             boxShadow: [
               BoxShadow(
@@ -58,7 +58,14 @@ class _HomePageState extends State<HomePage> {
                   debugPrint("Account button pressed");
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyAccount()),
+                    MaterialPageRoute(
+                      builder: (context) => MyAccount(
+                        userName: "Random user",
+                        userEmail: "randomperson@gmail.com",
+                        userPhoneNo: "984*******",
+                        userAddress: "Pulchowk Lalitpur",
+                      ),
+                    ),
                   );
                 },
                 icon: Icon(Icons.account_circle_outlined, size: 34),
