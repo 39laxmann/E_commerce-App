@@ -4,12 +4,18 @@ class ProductDisplay extends StatelessWidget {
   final String imagePath;
   final double productPrice;
   final String productName;
+  final double starReview;
+  final int reviewerNumber;
+  final int noofItemsSold;
 
   const ProductDisplay({
     super.key,
     required this.imagePath,
     required this.productPrice,
     required this.productName,
+    required this.starReview,
+    required this.reviewerNumber,
+    required this.noofItemsSold,
   });
 
   @override
@@ -46,7 +52,19 @@ class ProductDisplay extends StatelessWidget {
             // Product Price
             Text(
               "Rs ${productPrice.toStringAsFixed(2)}",
-              style: TextStyle(fontSize: 13, color: Colors.grey.shade700),
+              style: TextStyle(
+                fontSize: 13,
+                color: const Color.fromARGB(255, 162, 51, 51),
+              ),
+            ),
+            Row(
+              children: [
+                Icon(Icons.star, color: Colors.yellow, size: 20),
+                Text(
+                  "${starReview.toString()} ($reviewerNumber)   $noofItemsSold sold",
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
+              ],
             ),
           ],
         ),
