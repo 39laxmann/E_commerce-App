@@ -64,6 +64,7 @@ class _HomePageState extends State<HomePage> {
                         userEmail: "randomperson@gmail.com",
                         userPhoneNo: "984*******",
                         userAddress: "Pulchowk Lalitpur",
+                        userOrder: "laptop",
                       ),
                     ),
                   );
