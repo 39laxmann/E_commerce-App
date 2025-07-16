@@ -10,7 +10,7 @@ class ChangePassword extends StatelessWidget {
         title: const Text('Change Your Password',style: TextStyle(fontSize: 25),),
       ),
       body: const Center(
-        child: Text('This is an empty page for now '),
+              
       ),
     );
   }
