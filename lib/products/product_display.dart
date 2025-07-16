@@ -34,10 +34,10 @@ class ProductDisplay extends StatelessWidget {
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset(imagePath, height: 90, fit: BoxFit.contain),
+                child: Image.asset(imagePath, height: 77, fit: BoxFit.contain),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
 
             // Product Name
             Text(
@@ -47,7 +47,7 @@ class ProductDisplay extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
 
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
 
             // Product Price
             Text(
