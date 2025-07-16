@@ -1,6 +1,7 @@
 // ignore: unused_import
 import 'dart:ffi';
 
+import 'package:e_commerce_app/screens/buttomNavigationBar.dart/myCart.dart';
 import 'package:e_commerce_app/screens/home_page.dart';
 import 'package:e_commerce_app/user_profile/change_password.dart';
 import 'package:e_commerce_app/user_profile/edit_profile.dart';
@@ -12,12 +13,14 @@ class MyAccount extends StatelessWidget {
   final String userEmail;
   final String userPhoneNo;
   final String userAddress;
+  final String userOrder;
   const MyAccount({
     super.key,
     required this.userName,
     required this.userEmail,
     required this.userPhoneNo,
     required this.userAddress,
+    required this.userOrder,
   });
 
   @override
@@ -139,6 +142,39 @@ class MyAccount extends StatelessWidget {
             ),
             SizedBox(height: 20),
 
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 1,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                elevation: 3,
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'My Orders',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 21,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        "Order: $userOrder",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      SizedBox(height: 4),
+                     
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -146,7 +182,8 @@ class MyAccount extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => EditProfile()),
+                      // MaterialPageRoute(builder: (context) => EditProfile()),
+                       MaterialPageRoute(builder: (context) => MyCart()),
                     );
                   },
                   child: Text("Edit profile", style: TextStyle(fontSize: 19)),
