@@ -19,7 +19,7 @@ class Apptheme {
     textTheme: const TextTheme(
       titleLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 42),
       bodyMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-      bodySmall: TextStyle(fontSize: 12),
+      bodySmall: TextStyle(fontSize: 30),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
@@ -27,6 +27,9 @@ class Apptheme {
         backgroundColor: Colors.green.shade400,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(iconSize: WidgetStateProperty.all(26)),
     ),
   );
 }
