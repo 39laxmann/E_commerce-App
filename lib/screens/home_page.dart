@@ -1,24 +1,57 @@
+import 'package:e_commerce_app/common/scaffold_with_bottomNavbar.dart';
 import 'package:e_commerce_app/products/product_carousel.dart';
 import 'package:e_commerce_app/products/product_category.dart';
 import 'package:e_commerce_app/products/product_display.dart';
 import 'package:e_commerce_app/screens/account_page.dart';
+import 'package:e_commerce_app/screens/buttomNavigationbar/my_cart.dart';
+import 'package:e_commerce_app/screens/buttomNavigationbar/message.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+  void _onNavBarTapped(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        // Already on HomePage, do nothing or maybe pop to root
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MyCart()),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Message()),
+        );
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyAccount(
+              userName: 'Bibek Gautam',
+              userEmail: 'bibekGautam@gmail.com',
+              userPhoneNo: '984*******',
+              userAddress: 'Pulchowk,Lalitpur',
+              userOrder: 'Macbook',
+            ),
+          ),
+        );
+        break;
+    }
+  }
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
+    return MainScaffold(
+      currentIndex: 0, // Home is active
+      onTap: (index) => _onNavBarTapped(context, index),
+      appbar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -26,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               bottomLeft: Radius.circular(8),
               bottomRight: Radius.circular(8),
             ),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 10,
@@ -36,7 +69,7 @@ class _HomePageState extends State<HomePage> {
           ),
           child: AppBar(
             backgroundColor: Colors.transparent,
-            elevation: 0, // remove default shadow
+            elevation: 0,
             title: Shimmer.fromColors(
               baseColor: Colors.black,
               highlightColor: Colors.grey,
@@ -49,49 +82,34 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            iconTheme: IconThemeData(
-              color: Colors.black,
-            ), // ensure icons are black
+            iconTheme: const IconThemeData(color: Colors.black),
             actions: [
               IconButton(
                 onPressed: () {
-                  debugPrint("Account button pressed");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyAccount(
-                        userName: "Random user",
-                        userEmail: "randomperson@gmail.com",
-                        userPhoneNo: "984*******",
-                        userAddress: "Pulchowk Lalitpur",
-                        userOrder: "laptop",
-                      ),
-                    ),
-                  );
+                  debugPrint("Search button clicked");
                 },
-                icon: Icon(Icons.account_circle_outlined, size: 34),
+                icon: const Icon(Icons.search, size: 32),
               ),
             ],
           ),
         ),
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 37),
-              ProductCarousel(),
-              SizedBox(height: 23),
-              Divider(color: Colors.grey, thickness: 1, height: 32),
-              Text("Categories", style: TextStyle(fontSize: 20)),
-              SizedBox(height: 10),
+              const SizedBox(height: 37),
+              const ProductCarousel(),
+              const SizedBox(height: 23),
+              const Divider(color: Colors.grey, thickness: 1, height: 32),
+              const Text("Categories", style: TextStyle(fontSize: 20)),
+              const SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [
+                  children: const [
                     ProductCategory(
                       imageCategory: "assets/product_category_image/laptop.png",
                       nameCategory: "Laptop",
@@ -126,12 +144,11 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Divider(color: Colors.grey, thickness: 1, height: 32),
+              const Divider(color: Colors.grey, thickness: 1, height: 32),
               GridView.count(
                 crossAxisCount: 2,
-                childAspectRatio: 0.96, // Adjust based on design
+                childAspectRatio: 0.96,
                 crossAxisSpacing: 12,
-
                 padding: const EdgeInsets.all(12),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -181,57 +198,7 @@ class _HomePageState extends State<HomePage> {
                     noofItemsSold: 17,
                     sellerInfo: 'Laxman Thapa',
                   ),
-                  // add more items...
                 ],
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 10,
-              offset: Offset(0, -2),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.orangeAccent,
-            unselectedItemColor: Colors.grey,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined, size: 32),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search, size: 32),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart, size: 32),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.message_rounded, size: 32),
-                label: '',
               ),
             ],
           ),
