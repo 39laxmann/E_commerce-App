@@ -55,16 +55,17 @@ class MainScaffold extends StatelessWidget {
                 icon: Icon(Icons.home_outlined, size: 32),
                 label: '',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search, size: 32),
-                label: '',
-              ),
+
               BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_cart, size: 32),
                 label: '',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.message_rounded, size: 32),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle_outlined, size: 32),
                 label: '',
               ),
             ],
