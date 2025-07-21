@@ -25,11 +25,12 @@ class Apptheme {
       style: TextButton.styleFrom(
         foregroundColor: Colors.white,
         backgroundColor: Colors.green.shade400,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(iconSize: WidgetStateProperty.all(26)),
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(),
   );
 }

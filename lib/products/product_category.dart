@@ -13,20 +13,26 @@ class ProductCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: SizedBox(
-        height: 120,
-        width: 100,
+      child: GestureDetector(
+        onTap: () {
+          debugPrint("$nameCategory was clicked");
+        },
 
-        child: Column(
-          children: [
-            Image.asset(
-              imageCategory,
-              height: 71,
-              width: 71,
-              fit: BoxFit.cover,
-            ),
-            Text(nameCategory),
-          ],
+        child: SizedBox(
+          height: 120,
+          width: 100,
+
+          child: Column(
+            children: [
+              Image.asset(
+                imageCategory,
+                height: 71,
+                width: 71,
+                fit: BoxFit.cover,
+              ),
+              Text(nameCategory),
+            ],
+          ),
         ),
       ),
     );
