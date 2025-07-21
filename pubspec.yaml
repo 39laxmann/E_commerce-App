@@ -44,3 +44,6 @@ flutter:
     - family: BubblegumSans
       fonts:
         - asset: assets/fonts/BubblegumSans-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-VariableFont_wdth,wght.ttf

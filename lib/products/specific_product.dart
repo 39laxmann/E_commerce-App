@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/common/scaffold_with_bottomNavbar.dart';
+import 'package:e_commerce_app/products/add_to_cart.dart';
 import 'package:flutter/material.dart';
 
 class SpecificProduct extends StatelessWidget {
@@ -17,8 +17,8 @@ class SpecificProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainScaffold(
-      appbar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -69,21 +69,49 @@ class SpecificProduct extends StatelessWidget {
               sellerInfo,
               style: TextStyle(color: Colors.grey, fontSize: 15),
             ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: SizedBox(
-                  height: 45,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {},
-
-                    child: Text("Add to cart", style: TextStyle(fontSize: 16)),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        elevation: 10,
+        height: 80,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: 120,
+              width: 168,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.yellow[700]),
+                  textStyle: WidgetStatePropertyAll(
+                    TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                   ),
                 ),
+                onPressed: () {
+                  debugPrint("Buy now button pressed");
+                },
+                child: Text("Buy Now"),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(
+              height: 120,
+              width: 168,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.red[300]),
+                  textStyle: WidgetStatePropertyAll(
+                    TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                onPressed: () {
+                  debugPrint("Add to cart button pressed");
+                  addtoCart(context, imagePath, productPrice);
+                },
+                child: Text("Add to cart"),
+              ),
+            ),
           ],
         ),
       ),

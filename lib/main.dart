@@ -1,4 +1,5 @@
-import 'package:e_commerce_app/screens/home_page.dart';
+import 'package:e_commerce_app/common/main_scaffold.dart';
+// import 'package:e_commerce_app/screens/buttomNavigationbar/home_page.dart';
 import 'package:e_commerce_app/theme/apptheme.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Shopmandu",
       theme: Apptheme.lightTheme,
-      home: HomePage(),
+      home: MainScaffold(),
     );
   }
 }

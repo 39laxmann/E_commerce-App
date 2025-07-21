@@ -1,56 +1,16 @@
-import 'package:e_commerce_app/common/scaffold_with_bottomNavbar.dart';
 import 'package:e_commerce_app/products/product_carousel.dart';
 import 'package:e_commerce_app/products/product_category.dart';
 import 'package:e_commerce_app/products/product_display.dart';
-import 'package:e_commerce_app/screens/account_page.dart';
-import 'package:e_commerce_app/screens/buttomNavigationbar/my_cart.dart';
-import 'package:e_commerce_app/screens/buttomNavigationbar/message.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  void _onNavBarTapped(BuildContext context, int index) {
-    switch (index) {
-      case 0:
-        // Already on HomePage, do nothing or maybe pop to root
-        break;
-      case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MyCart()),
-        );
-        break;
-      case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Message()),
-        );
-        break;
-      case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MyAccount(
-              userName: 'Bibek Gautam',
-              userEmail: 'bibekGautam@gmail.com',
-              userPhoneNo: '984*******',
-              userAddress: 'Pulchowk,Lalitpur',
-              userOrder: 'Macbook',
-            ),
-          ),
-        );
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MainScaffold(
-      currentIndex: 0, // Home is active
-      onTap: (index) => _onNavBarTapped(context, index),
-      appbar: PreferredSize(
+    return Scaffold(
+      appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
           decoration: BoxDecoration(
@@ -160,7 +120,7 @@ class HomePage extends StatelessWidget {
                     starReview: 4.2,
                     reviewerNumber: 11,
                     noofItemsSold: 23,
-                    sellerInfo: 'bibekGautam',
+                    sellerInfo: 'Laxman',
                   ),
                   ProductDisplay(
                     imagePath: 'assets/images/cctv_2.png',
@@ -169,7 +129,7 @@ class HomePage extends StatelessWidget {
                     starReview: 3.8,
                     reviewerNumber: 52,
                     noofItemsSold: 120,
-                    sellerInfo: 'bibekGautam',
+                    sellerInfo: 'Laxman',
                   ),
                   ProductDisplay(
                     imagePath: 'assets/images/canon.png',
@@ -178,7 +138,7 @@ class HomePage extends StatelessWidget {
                     starReview: 4.5,
                     reviewerNumber: 12,
                     noofItemsSold: 18,
-                    sellerInfo: 'bibekGautam',
+                    sellerInfo: 'Laxman',
                   ),
                   ProductDisplay(
                     imagePath: 'assets/images/T5P_ratri_cctv.png',
@@ -187,7 +147,7 @@ class HomePage extends StatelessWidget {
                     starReview: 3.4,
                     reviewerNumber: 31,
                     noofItemsSold: 228,
-                    sellerInfo: 'bibekGautam',
+                    sellerInfo: 'Laxman',
                   ),
                   ProductDisplay(
                     imagePath: 'assets/images/Msi_monitor.png',

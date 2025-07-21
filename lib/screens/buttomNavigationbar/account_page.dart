@@ -1,9 +1,7 @@
 // ignore: unused_import
 import 'dart:ffi';
-
-import 'package:e_commerce_app/screens/buttomNavigationBar/my_cart.dart';
-import 'package:e_commerce_app/screens/home_page.dart';
 import 'package:e_commerce_app/user_profile/change_password.dart';
+import 'package:e_commerce_app/user_profile/edit_profile.dart';
 import 'package:e_commerce_app/user_profile/setting.dart';
 import 'package:flutter/material.dart';
 
@@ -28,15 +26,7 @@ class MyAccount extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-          icon: Icon(Icons.arrow_back, color: Colors.blue),
-        ),
+
         title: const Text(
           'Your Profile',
           textAlign: TextAlign.start,
@@ -181,7 +171,7 @@ class MyAccount extends StatelessWidget {
                     Navigator.push(
                       context,
                       // MaterialPageRoute(builder: (context) => EditProfile()),
-                      MaterialPageRoute(builder: (context) => MyCart()),
+                      MaterialPageRoute(builder: (context) => EditProfile()),
                     );
                   },
                   child: Text("Edit profile", style: TextStyle(fontSize: 19)),

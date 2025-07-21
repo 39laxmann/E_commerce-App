@@ -13,12 +13,7 @@ class MyCart extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back, color: Colors.blue),
-        ),
+
         title: const Text(
           'MyCart',
           textAlign: TextAlign.start,
