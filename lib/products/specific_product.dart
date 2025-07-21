@@ -107,7 +107,11 @@ class SpecificProduct extends StatelessWidget {
                 ),
                 onPressed: () {
                   debugPrint("Add to cart button pressed");
-                  addtoCart(context, imagePath, productPrice);
+                  addtoCart(context, imagePath, productPrice, [
+                    "Midnight Black",
+                    "Space White",
+                    "Navy Blue",
+                  ]);
                 },
                 child: Text("Add to cart"),
               ),
