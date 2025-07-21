@@ -1,6 +1,7 @@
 // ignore: unused_import
 import 'dart:ffi';
 import 'package:e_commerce_app/user_profile/change_password.dart';
+// ignore: unused_import
 import 'package:e_commerce_app/user_profile/edit_profile.dart';
 import 'package:e_commerce_app/user_profile/setting.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class MyAccount extends StatelessWidget {
       ),
 
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),  
         child: Column(
           children: [
             //Icon(Icons.real_estate_agent),
@@ -163,7 +164,7 @@ class MyAccount extends StatelessWidget {
             ),
             SizedBox(height: 20),
 
-            Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
