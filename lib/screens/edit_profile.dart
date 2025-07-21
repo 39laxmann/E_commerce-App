@@ -7,7 +7,7 @@ class EditProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Setting'),
+        title: const Text('Edit Profile'),
       ),
       body: const Center(
         child: Text('This is an empty page for now '),
